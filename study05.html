@@ -1,0 +1,15 @@
+<script>
+var SumNumber = 0;
+var SN = parseInt(SumNumber);
+
+function sum(){
+	var number = prompt("Please submit the number : ");
+	if(number!=null){
+		var Num = parseInt(number);
+		SN = SN + Num;
+		sum();
+	}
+}
+sum();
+console.log(SN);
+</script>
