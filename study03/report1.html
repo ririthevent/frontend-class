@@ -1,0 +1,65 @@
+<script>
+//Person클래스
+function Person(name, phone){
+	this.name = name;
+	this.phone = phone;
+//메세지를 보내고, 번호(기종) -> 받은 번호 : 내용 형식을 출력하고, getSMS를 호출
+	this.sendSMS = function(to, text){
+		console.log('['+this.name+']'+to.name+"에게 "+"\'"+text+"\' 메세지를 보냈습니다.");
+		console.log(this.phone.getNumber()+"("+this.phone.getType()+") -> "+to.phone.getNumber()+" : "+text);
+		this.getSMS(name, text);
+	};
+	this.getSMS = function(from, text){
+		console.log('['+this.name+']'+from+"에게 "+"\'"+text+"\' 메세지를 받았습니다.");
+	};
+}
+
+//이모티콘 메소드 추가!
+Person.prototype.emoticon = function(select){
+	if(select == 1){
+		return '^^';
+	}
+	else if(select == 2){
+		return 'ㅠㅠ';
+	}
+	else {
+		return 'ㅡㅡ';
+	}
+};
+
+function Phone(number){
+	var PhoneNumber = number;  //번호를 private화
+	this.getNumber= function(){
+		return PhoneNumber;
+	};
+	this.Type = 'feature';
+	this.getType = function(){
+		return this.Type;
+	};
+}
+
+IPhone = function(number){
+	var PhoneNumber = number;
+	this.getNumber= function(){
+		return PhoneNumber;
+	};
+	this.Type = 'iPhone';
+}
+
+Android = function(number){
+	var PhoneNumber = number;
+	this.getNumber= function(){
+		return PhoneNumber;
+	};
+	this.Type = 'Android';
+}
+
+IPhone.prototype = new Phone();//상속
+Android.prototype = new Phone();//상속
+
+var zero = new Person('영희', new IPhone('001'));
+var one = new Person('철수', new Android('002'));
+zero.sendSMS(one, '심심하다.'+zero.emoticon(2));
+one.sendSMS(zero, '여친이랑 놀아'+one.emoticon(1));
+zero.sendSMS(one, '먼저 여친이 있냐고 묻는게 예의 아니냐?'+zero.emoticon(3));
+</script>
