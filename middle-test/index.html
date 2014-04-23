@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<title>이 시각 주요 뉴스</title>
+
+<style type="text/css">
+/*reset*/
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,textarea,p,blockquote,th,td,input,select,textarea,button {margin:0;padding:0}
+fieldset,img {border:0 none}
+dl,ul,ol,menu,li {list-style:none}
+blockquote, q {quotes: none}
+blockquote:before, blockquote:after,q:before, q:after {content:'';content:none}
+input,select,textarea,button {vertical-align:middle}
+button {border:0 none;background-color:transparent;cursor:pointer}
+body {background:#fff}
+body,th,td,input,select,textarea,button {font-size:12px;line-height:1.5;font-family:'돋움',dotum,sans-serif;color:#333} /* color값은 디자인가이드에 맞게사용 */
+a {color:#333;text-decoration:none}
+a:active, a:hover {text-decoration:underline}
+address,caption,cite,code,dfn,em,var {font-style:normal;font-weight:normal}
+
+/*레이아웃*/
+	.wrap {width:300px;margin:0 auto;}
+	.kind {margin-top:10px;height:40px;}
+	.list {height:400px}
+	
+	.news {float:left; border:1px solid; border-bottom:0px; width:50px;}
+	.entertain {float:left;width:50px; border-bottom:1px solid;}
+	.sports {float:left;width:50px; border-bottom:1px solid;}
+	.void{float:left;width:147px;margin-top:38px; border-bottom:1px solid;}
+	
+	.news_font{margin:10px;float:middle; color:black;}
+	.entertain_font{margin:10px;float:middle; color:blue;}
+	.sports_font{margin:10px;margin-left:5px;margin-right:5px;float:middle; color:blue;}
+	
+	.more {height:50px}
+</style>
+<script type="text/javascript">
+	function getXHR(){
+		var req;
+		trt{
+			req = new XMLHttpRequest();
+		} catch(e) {
+			try {
+				req = new ActiveXObject('Msxml2.XMLHTTP');
+			} catch (e) {
+				req = new ActiveXObject('Microsoft.XMLHTTP');
+			}
+		}
+		return req;
+	}
+	
+	//뉴스를 클릭했을 때 생기는 변화들을 넣은 함수.
+	function changeStyle1(){
+		var req = getXHR();
+		req.onreadystatechange = function(){
+			var result = 
+		}
+		var news = document.getElementsByClassName('news');
+		var news_font = document.getElementsByClassName('news_font');
+		var entertain = document.getElementsByClassName('entertain');
+		var entertain_font = document.getElementsByClassName('entertain_font');
+		var sports = document.getElementsByClassName('sports');
+		var sports_font = document.getElementsByClassName('sports_font');
+		news.style.border = '1px';
+		news.style.borderBottom = '0px';
+		news.style.borderStyle = 'solid';
+		news_font.style.color = 'black';
+		entertain.style.border = '0px';
+		entertain.style.borderBottom = '1px';
+		entertain.style.borderStyle = 'solid';
+		entertain_font.style.color = 'blue';
+		sports.style.border = '0px';
+		sports.style.borderBottom = '1px';
+		sports.style.borderStyle = 'solid';
+		sports_font.style.color = 'blue';
+	}
+
+	//연예를 눌렀을 때 생기는 변화를 넣은 함수
+	function changeStyle2(ele){
+		var news = document.getElementsByClassName('news');
+		var news_font = document.getElementsByClassName('news_font');
+		var entertain = document.getElementsByClassName('entertain');
+		var entertain_font = document.getElementsByClassName('entertain_font');
+		var sports = document.getElementsByClassName('sports');
+		var sports_font = document.getElementsByClassName('sports_font');
+		news.style.border = '0px';
+		news.style.borderBottom = '1px';
+		news.style.borderStyle = 'solid';
+		news_font.style.color = 'blue';
+		ele.style.border = '1px';
+		ele.style.borderBottom = '0px';
+		ele.style.borderStyle = 'solid';
+		entertain_font.style.color = 'black';
+		sports.style.border = '0px';
+		sports.style.borderBottom = '1px';
+		sports.style.borderStyle = 'solid';
+		sports_font.style.color = 'blue';
+	}
+	
+	//스포츠를 눌렀을 때 생기는 변화를 넣은 함수
+	function changeStyle3(){
+		var news = document.getElementsByClassName('news');
+		var news_font = document.getElementsByClassName('news_font');
+		var entertain = document.getElementsByClassName('entertain');
+		var entertain_font = document.getElementsByClassName('entertain_font');
+		var sports = document.getElementsByClassName('sports');
+		var sports_font = document.getElementsByClassName('sports_font');
+		news.style.border = '0px';
+		news.style.borderBottom = '1px';
+		news.style.borderStyle = 'solid';
+		news_font.style.color = 'blue';
+		entertain.style.border = '0px';
+		entertain.style.borderBottom = '1px';
+		entertain.style.borderStyle = 'solid';
+		entertain_font.style.color = 'blue';
+		sports.style.border = '1px';
+		sports.style.borderBottom = '0px';
+		sports.style.borderStyle = 'solid';
+		sports_font.style.color = 'black';
+	}
+</script>
+<body>
+	<div class = "wrap">
+		<div class = "kind">
+			<div class = "news" onmouseover="changeStyle1()"><div class="news_font">뉴스</div></div>
+			<div class = "entertain" onmouseover="changeStyle2()"><div class="entertain_font">연예</div></div>
+			<div class = "sports" onmouseover="changeStyle3()"><div class="sports_font">스포츠</div></div>
+			<div class = "void"></div>
+		</div>
+		<div class = "list">
+
+			<div class = "more">
+				<input type="button" value="더보기" id="more_button"/>
+			</div>
+		</div>
+	</div>
+</body>
